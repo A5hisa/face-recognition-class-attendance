@@ -2,7 +2,7 @@ import face_recognition
 import cv2
 import numpy as np
 import os
-from VideoCaptureThread import VideoCaptureThread
+from videocapture import VideoCaptureThread
 import pickle
 from sklearn.neighbors import NearestNeighbors
 import mediapipe as mp
