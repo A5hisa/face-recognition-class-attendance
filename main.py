@@ -1,11 +1,11 @@
-import face_recognition
 import cv2
+import face_recognition
 import numpy as np
 import os
-from videocapture import VideoCaptureThread
 import pickle
-from sklearn.neighbors import NearestNeighbors
 import mediapipe as mp
+from sklearn.neighbors import NearestNeighbors
+from videocapture import VideoCaptureThread
 
 # Initialize Mediapipe Face Detection
 mp_face_detection = mp.solutions.face_detection
