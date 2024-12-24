@@ -3,8 +3,6 @@ import queue
 import time
 import cv2
 
-
-
 class VideoCaptureThread(threading.Thread):
     def __init__(self, src=0, width=640, height=480, queue_size=2):
         super().__init__()
