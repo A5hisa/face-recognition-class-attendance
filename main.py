@@ -142,7 +142,7 @@ if __name__ == "__main__":
                                 face_encoding = face_recognition.face_encodings(rgb_small_frame, [(top, right, bottom, left)])
                                 if face_encoding:
                                     face_encoding = face_encoding[0]
-                                    # If you have a large dataset, use nearest neighbors
+                                    #use nearest neighbors
                                     if len(known_face_encodings) > 0:
                                         distances, indices = nbrs.kneighbors([face_encoding])
                                         dist = distances[0][0]

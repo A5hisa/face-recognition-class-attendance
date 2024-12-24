@@ -11,7 +11,7 @@ class VideoCaptureThread(threading.Thread):
         self.capture = cv2.VideoCapture(src, cv2.CAP_DSHOW)
         self.capture.set(cv2.CAP_PROP_FRAME_WIDTH, width)
         self.capture.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
-        self.capture.set(cv2.CAP_PROP_FPS, 60)
+        self.capture.set(cv2.CAP_PROP_FPS, 30)
         self.queue = queue.Queue(maxsize=queue_size)
         self.stopped = False
 
