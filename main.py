@@ -62,7 +62,7 @@ def load_known_faces(directory):
 
 if __name__ == "__main__":
     # Load known faces
-    known_faces_dir = "known_faces"
+    known_faces_dir = "data"
     known_face_encodings, known_face_names = load_known_faces(known_faces_dir)
 
     print("Initializing Camera...")
