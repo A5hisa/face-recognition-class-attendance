@@ -174,7 +174,7 @@ if __name__ == "__main__":
 
                     face_locations = new_face_locations
                     face_names = new_face_names
-
+                    
                 # Display results
                 for ((top, right, bottom, left), (name, confidence)) in zip(face_locations, face_names):
                     # Scale back up by factor of 4 since we scaled down the image
@@ -185,12 +185,12 @@ if __name__ == "__main__":
 
                     cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
                     label = f"{name}"
-                    cv2.putText(frame, label, (left, bottom + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
-
+                    cv2.putText(frame, label, (left, bottom + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)    
+        
                 cv2.imshow("Video", frame)
                 if cv2.waitKey(1) & 0xFF == ord("q"):
                     break
-
+                
         # Cleanup
         video_capture.stop()
         video_capture.join()
