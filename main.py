@@ -82,7 +82,7 @@ if __name__ == "__main__":
     previous_face_locations = []
     previous_face_names = []
 
-    with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence=0.5) as face_detection:
+    with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence=0.7) as face_detection:
         while True:
             if video_capture.more():
                 frame = video_capture.read()
@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
                 # Only process every nth frame
                 if frame_count % process_every_n_frames == 0:
-                    small_frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
+                    small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
                     rgb_small_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
 
                     results = face_detection.process(rgb_small_frame)
@@ -177,11 +177,11 @@ if __name__ == "__main__":
 
                 # Display results
                 for ((top, right, bottom, left), (name, confidence)) in zip(face_locations, face_names):
-                    # Scale back up by factor of 2 since we scaled down the image
-                    top *= 2
-                    right *= 2
-                    bottom *= 2
-                    left *= 2
+                    # Scale back up by factor of 4 since we scaled down the image
+                    top *= 4
+                    right *= 4
+                    bottom *= 4
+                    left *= 4
 
                     cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
                     label = f"{name}"
