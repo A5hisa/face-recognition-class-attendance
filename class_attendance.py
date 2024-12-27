@@ -4,9 +4,13 @@ import pandas as pd
 import os
 
 # set file path here
-xls_path = "data_subject"
+# xls_path for raw data
+xls_path = "raw_data"
+# attendance_path for xlsx file to check class attendance
 attendance_path = "data_attendance"
-# for create sheet
+
+
+# for cleansing data 
 column_header = ['เลขที่', 'รหัสประจำตัว', 'ชื่อ', 'Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7', 'Week8', 'Week9', 'Week10', 'Week11', 'Week12', 'Week13', 'Week14', 'Week15', 'Week16']
 final_student_list = []
 check_sect = 0
@@ -21,7 +25,7 @@ def cleansing_data():
         df_student_list = student_data.values.tolist()
         for number, student_id, student_name in df_student_list :  
 
-            # check sect1 and sect2
+            # check if have section2
             if number == 1:
                 check_sect += 1
                 if check_sect == 2:
@@ -30,19 +34,20 @@ def cleansing_data():
                     # clear list sect1 for sect2
                     final_student_list = []  
 
-            # if number is int then add number, student_id, student_name to list for create data frame            
+            # if number is int then add [number, student_id, student_name and 0] 0 for week1-16 in to list for create data frame            
             if type(number) is int:
                 new_list = [number, student_id, student_name,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
                 final_student_list.append(new_list)       
 
-        # create excelfile
+        # set format to create excelfile
         name, file_format = os.path.splitext(filename)
         name = f"{name}.xlsx"
 
+        # create excelfile in attendance_path
         with pd.ExcelWriter(os.path.join(attendance_path, name)) as writer:
             df_create1.to_excel(writer, sheet_name="section1", index=False)
 
-            # Have sect2 create dataframe for sect2 and sheet sect2
+            # have section2 create dataframe and sheet for section2
             if check_sect == 2:
                 df_create2 = pd.DataFrame(final_student_list, columns= column_header)
                 df_create2.to_excel(writer, sheet_name="section2", index=False)
