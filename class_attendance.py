@@ -18,6 +18,7 @@ column_header = ['เลขที่', 'รหัสประจำตัว', '
 student_list = []
 have2section = False
 
+# this function it's use for cleansing data repclasslist.xls in Burapha university
 def cleansing_data():
 
     global student_list, checkfile, have2section
