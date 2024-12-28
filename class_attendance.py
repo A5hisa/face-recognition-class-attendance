@@ -16,11 +16,11 @@ checkfile = []
 # for cleansing data 
 column_header = ['เลขที่', 'รหัสประจำตัว', 'ชื่อ', 'Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7', 'Week8', 'Week9', 'Week10', 'Week11', 'Week12', 'Week13', 'Week14', 'Week15', 'Week16']
 student_list = []
-have2sect = False
+have2section = False
 
 def cleansing_data():
 
-    global student_list, checkfile, have2sect
+    global student_list, checkfile, have2section
 
     # collect filename in to checkfile
     for file in os.listdir(attendance_path):
@@ -41,25 +41,27 @@ def cleansing_data():
             for number, student_id, student_name in df_student_list :  
                 if number == "เลขที่":
                     df_section1 = pd.DataFrame(student_list, columns= column_header)
-                    have2sect = True
+                    have2section = True
                     student_list = []
                 # if number is int then add [number, student_id, student_name and 0] 0 for week1-16 in to list for create data frame            
                 if type(number) is int:
                     student = [number, student_id, student_name,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
                     student_list.append(student)    
-            if not have2sect:
+            if not have2section:
                 df_section1 = pd.DataFrame(student_list, columns= column_header)
 
             # create excelfile in attendance_path
             namefile = f"{subject_id}.xlsx"
             with pd.ExcelWriter(os.path.join(attendance_path, namefile)) as writer:
                 df_section1.to_excel(writer, sheet_name="section1", index=False)
-                if have2sect:
+                if have2section:
                     df_section2 = pd.DataFrame(student_list, columns= column_header)
                     df_section2.to_excel(writer, sheet_name="section2", index=False)
                 print(f"Create file in folder:{attendance_path} filename:{namefile}\n")
+
+        # set default
         student_list = []
-        have2sect = False
+        have2section = False
 
 
 # for filename in os.listdir(xlspath):
