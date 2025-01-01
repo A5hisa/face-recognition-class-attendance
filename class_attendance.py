@@ -65,10 +65,6 @@ def cleansing_data():
         have2section = False
 
 
-# for filename in os.listdir(xlspath):
-#     df = pd.read_excel(os.path.join(xlspath, filename), engine="xlrd", sheet_name="Sheet1")
-#     # print(df.columns.values.tolist()) 
-#     columns = df[list]
-#     dict_student = columns.to_dict(orient="records")
-#     for i in range(0 , len(dict_student)):
-#         dict_student[i][list[2]] = 0
+def attendance(class_id, week, section="section1"):
+    for filename in os.listdir(attendance_path):
+        df = pd.read_excel(os.path.join(attendance_path, filename), engine="xlrd",sheet_name=section)
