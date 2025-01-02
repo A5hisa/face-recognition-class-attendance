@@ -64,7 +64,8 @@ def cleansing_data():
         student_list = []
         have2section = False
 
+def attendance(class_file,section="section1",week=""):
+    df = pd.read_excel(os.path.join(attendance_path, class_file),sheet_name=section)
+    print(df[["เลขที่","รหัสประจำตัว","ชื่อ",week]])
 
-def attendance(class_id, week, section="section1"):
-    for filename in os.listdir(attendance_path):
-        df = pd.read_excel(os.path.join(attendance_path, filename), engine="xlrd",sheet_name=section)
+attendance(class_file="24537164.xlsx",section="section1",week="Week1")
