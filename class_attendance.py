@@ -64,6 +64,8 @@ def cleansing_data():
         student_list = []
         have2section = False
 
+
+
 def attendance(class_file,section="section1",week="",knowface=""):
 
     df_attendance = pd.read_excel(os.path.join(attendance_path, class_file),sheet_name=section)
