@@ -3,6 +3,7 @@
 
 import pandas as pd
 import os
+from tkinter import *
 
 # set file path here
 # xls_path for raw data
@@ -75,5 +76,26 @@ def attendance(class_file,section="section1",week="",knowface=""):
     for key, val in enumerate(index):
         if knowface == str(val):
             df_attendance.at[key,week] = 1
+            print(df_attendance)
 
-attendance(class_file="24537164.xlsx",section="section1",week="Week1",knowface="65020876")
+# attendance(class_file="24537164.xlsx",section="section1",week="Week1",knowface="65020876")
+
+
+# gui
+
+# set up ui
+root = Tk()
+root.title("Attendance Programe")
+root.geometry("500x500")
+
+# title
+title = Label(root, text="Class Attendance with Face Recognition")
+title.config(font=("Arial", 18, "bold"))
+title.pack(pady=20)
+
+bt_cleansing = Button(root, text="Cleansing Data", command=cleansing_data)
+bt_cleansing.config(font=("Arial", 16))
+bt_cleansing.pack(pady=10)
+
+
+root.mainloop()
