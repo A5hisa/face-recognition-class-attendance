@@ -64,8 +64,14 @@ def cleansing_data():
         student_list = []
         have2section = False
 
-def attendance(class_file,section="section1",week=""):
-    df = pd.read_excel(os.path.join(attendance_path, class_file),sheet_name=section)
-    print(df[["เลขที่","รหัสประจำตัว","ชื่อ",week]])
+def attendance(class_file,section="section1",week="",knowface=""):
 
-attendance(class_file="24537164.xlsx",section="section1",week="Week1")
+    df_attendance = pd.read_excel(os.path.join(attendance_path, class_file),sheet_name=section)
+    df_student = df_attendance.iloc[:,1]
+    index = df_student.values.tolist()
+    
+    for key, val in enumerate(index):
+        if knowface == str(val):
+            df_attendance.at[key,week] = 1
+
+attendance(class_file="24537164.xlsx",section="section1",week="Week1",knowface="65020876")
