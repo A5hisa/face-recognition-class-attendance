@@ -5,14 +5,16 @@ This project is based on
 ## Installation
 
 1. Clone repositories
-    '''
+
+```shell
     $ git clone https://github.com//A5hisa/
-    '''
+```
 
 2. Install the required
-    '''
+
+```shell
     $ pip install -r requirements.txt
-    '''
+```
 
 3. Place image file(.jpg) in data
 
@@ -20,12 +22,12 @@ This project is based on
 
 ## Directory Structure
 
-    '''
+```bash
     .
     ├── data                    # Directory for storage face images
     ├── data_attendance         # Storage cleansing data .xlsx file 
     ├── raw_data                # Storage base file before cleansing data
-    '''
+```
 
 ## License
 
