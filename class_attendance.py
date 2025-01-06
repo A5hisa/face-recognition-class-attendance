@@ -103,7 +103,7 @@ def setup_ui():
     # title
     title = tk.Label(main_ui, text="Class Attendance with Face Recognition")
     title.config(font=("Arial", 18, "bold"))
-    title.pack(pady=20)
+    title.pack(pady=10)
 
     # cleansing data button
     bt_cleansing = tk.Button(main_ui, text="Cleansing Data", command=cleansing_data)
@@ -121,17 +121,22 @@ def setup_ui():
     dropdown_week.set("Select a Week")
 
     # submit
-    def Onclick_submit():
+    def onclick_confirm():
         file_name = dropdown_class.get()
         week = dropdown_week.get()
-        print(file_name, week)
+        if file_name == "Select a Class" or week == "Select a Week":
+            file_name = ""
+            week = ""
+        else:
+            main_ui.destroy()
+            start_record = True
 
-    bt_cleansing = tk.Button(main_ui, text="Confirm & Start Attendance", command=Onclick_submit)
-    bt_cleansing.config(font=("Arial", 16))
-    bt_cleansing.pack(pady=10)
+    # confirm button
+    bt_confirm = tk.Button(main_ui, text="Confirm & Start Attendance", command=onclick_confirm)
+    bt_confirm.config(font=("Arial", 16))
+    bt_confirm.pack(pady=10)
 
     main_ui.config(menu=menu_bar)
     main_ui.mainloop()
 
-
-# setup_ui()
+setup_ui()
