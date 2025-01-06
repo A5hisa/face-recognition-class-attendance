@@ -16,10 +16,6 @@ This project is based on
     $ pip install -r requirements.txt
 ```
 
-3. Place image file(.jpg) in data
-
-4. Place class file(.xls) in raw_data
-
 ## Directory Structure
 
 ```bash
