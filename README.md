@@ -7,7 +7,7 @@ This project is based on
 1. Clone repositories
 
 ```shell
-    $ git clone https://github.com//A5hisa/
+    $ git clone https://github.com/A5hisa/face-recognition-beta
 ```
 
 2. Install the required
