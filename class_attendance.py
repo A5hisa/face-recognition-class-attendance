@@ -3,7 +3,8 @@
 
 import pandas as pd
 import os
-from tkinter import *
+import tkinter as tk
+from tkinter import ttk
 
 # set file path here
 # xls_path for raw data
@@ -12,22 +13,25 @@ xls_path = "raw_data"
 attendance_path = "data_attendance"
 
 # check filename list
-checkfile = []
+data_checkfile = []
 
 # for dataframe
 column_header = ['เลขที่', 'รหัสประจำตัว', 'ชื่อ', 'Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7', 'Week8', 'Week9', 'Week10', 'Week11', 'Week12', 'Week13', 'Week14', 'Week15', 'Week16']
 student_list = []
 have2section = False
 
+
+# collect filename in to data_checkfile
+def checkfile(path=attendance_path):
+    for file in os.listdir(path):
+        file, _ = os.path.splitext(file)
+        data_checkfile.append(file)
+
+
 # this function it's use for cleansing data repclasslist.xls in Burapha university
 def cleansing_data():
 
-    global student_list, checkfile, have2section
-
-    # collect filename in to checkfile
-    for file in os.listdir(attendance_path):
-        file, _ = os.path.splitext(file)
-        checkfile.append(file)
+    global student_list, data_checkfile, have2section
 
     for filename in os.listdir(xls_path):
         df = pd.read_excel(os.path.join(xls_path, filename), engine="xlrd")
@@ -35,7 +39,7 @@ def cleansing_data():
         subject_id = get_subject.split(' ')[2]
 
         # check data is already cleansing?
-        if subject_id not in checkfile: 
+        if subject_id not in data_checkfile: 
             print(f"Cleansing data {filename} subject: {subject_id}")
             # get student data from sheet
             student_data = df.iloc[8:,1:4] # start row8 column B:D
@@ -67,8 +71,9 @@ def cleansing_data():
 
 
 
+# check attendance class from knowface
 def attendance(class_file,section="section1",week="",knowface=""):
-
+    class_file = f"{class_file}.xlsx"
     df_attendance = pd.read_excel(os.path.join(attendance_path, class_file),sheet_name=section)
     df_student = df_attendance.iloc[:,1]
     index = df_student.values.tolist()
@@ -77,25 +82,56 @@ def attendance(class_file,section="section1",week="",knowface=""):
         if knowface == str(val):
             df_attendance.at[key,week] = 1
             print(df_attendance)
-
-# attendance(class_file="24537164.xlsx",section="section1",week="Week1",knowface="65020876")
-
+ 
+# attendance(class_file="24537164",section="section1",week="Week1",knowface="65020876")
 
 # gui
 
 # set up ui
-root = Tk()
-root.title("Attendance Programe")
-root.geometry("500x500")
+def setup_ui():
 
-# title
-title = Label(root, text="Class Attendance with Face Recognition")
-title.config(font=("Arial", 18, "bold"))
-title.pack(pady=20)
+    checkfile()
 
-bt_cleansing = Button(root, text="Cleansing Data", command=cleansing_data)
-bt_cleansing.config(font=("Arial", 16))
-bt_cleansing.pack(pady=10)
+    main_ui = tk.Tk()
+    main_ui.title("Attendance Program")
+    main_ui.geometry("500x500")
+
+    # Menu
+    menu_bar = tk.Menu(main_ui, tearoff=0)
+    # menu_bar.add_command(label="How to use", command=)
+
+    # title
+    title = tk.Label(main_ui, text="Class Attendance with Face Recognition")
+    title.config(font=("Arial", 18, "bold"))
+    title.pack(pady=20)
+
+    # cleansing data button
+    bt_cleansing = tk.Button(main_ui, text="Cleansing Data", command=cleansing_data)
+    bt_cleansing.config(font=("Arial", 16))
+    bt_cleansing.pack(pady=10)
+
+    # dropdown class
+    dropdown_class = ttk.Combobox(main_ui, values=data_checkfile)
+    dropdown_class.pack(pady=10)
+    dropdown_class.set("Select a Class")
+ 
+    # dropdown week
+    dropdown_week = ttk.Combobox(main_ui, values=column_header[3:])
+    dropdown_week.pack(pady=10)
+    dropdown_week.set("Select a Week")
+
+    # submit
+    def Onclick_submit():
+        file_name = dropdown_class.get()
+        week = dropdown_week.get()
+        print(file_name, week)
+
+    bt_cleansing = tk.Button(main_ui, text="Confirm & Start Attendance", command=Onclick_submit)
+    bt_cleansing.config(font=("Arial", 16))
+    bt_cleansing.pack(pady=10)
+
+    main_ui.config(menu=menu_bar)
+    main_ui.mainloop()
 
 
-root.mainloop()
+# setup_ui()
