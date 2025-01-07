@@ -104,18 +104,18 @@ def setup_ui():
     # menu_bar.add_command(label="How to use", command=)
 
     # title
-    title = tk.Label(main_ui, text="Class Attendance with Face Recognition")
+    title = tk.Label(main_ui, text="Class Attendance \nWith \nFace Recognition")
     title.config(font=("Arial", 18, "bold"))
-    title.pack(pady=10)
+    title.pack(pady=20)
 
     # dropdown class
     dropdown_class = ttk.Combobox(main_ui, values=data_checkfile)
-    dropdown_class.pack(pady=10)
+    dropdown_class.pack(pady=20)
     dropdown_class.set("Select a Class")
  
     # dropdown week
     dropdown_week = ttk.Combobox(main_ui, values=column_header[3:])
-    dropdown_week.pack(pady=10)
+    dropdown_week.pack(pady=20)
     dropdown_week.set("Select a Week")
 
     # submit
@@ -137,5 +137,4 @@ def setup_ui():
     main_ui.config(menu=menu_bar)
     main_ui.mainloop()
 
-cleansing_data()
 setup_ui()
