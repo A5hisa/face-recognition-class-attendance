@@ -31,6 +31,8 @@ def checkfile(path=attendance_path):
 # this function it's use for cleansing data repclasslist.xls in Burapha university
 def cleansing_data():
 
+    checkfile()
+
     global student_list, data_checkfile, have2section
 
     for filename in os.listdir(xls_path):
@@ -55,6 +57,9 @@ def cleansing_data():
                     student_list.append(student)    
             if not have2section:
                 df_section1 = pd.DataFrame(student_list, columns= column_header)
+
+            # add subject_id to check file if data was cleansing
+            data_checkfile.append(subject_id)
 
             # create excelfile in attendance_path
             namefile = f"{subject_id}.xlsx"
@@ -90,8 +95,6 @@ def attendance(class_file,section="section1",week="",knowface=""):
 # set up ui
 def setup_ui():
 
-    checkfile()
-
     main_ui = tk.Tk()
     main_ui.title("Attendance Program")
     main_ui.geometry("500x500")
@@ -104,11 +107,6 @@ def setup_ui():
     title = tk.Label(main_ui, text="Class Attendance with Face Recognition")
     title.config(font=("Arial", 18, "bold"))
     title.pack(pady=10)
-
-    # cleansing data button
-    bt_cleansing = tk.Button(main_ui, text="Cleansing Data", command=cleansing_data)
-    bt_cleansing.config(font=("Arial", 16))
-    bt_cleansing.pack(pady=10)
 
     # dropdown class
     dropdown_class = ttk.Combobox(main_ui, values=data_checkfile)
@@ -139,4 +137,5 @@ def setup_ui():
     main_ui.config(menu=menu_bar)
     main_ui.mainloop()
 
+cleansing_data()
 setup_ui()
