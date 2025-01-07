@@ -6,6 +6,7 @@ import pickle
 import mediapipe as mp
 from sklearn.neighbors import NearestNeighbors
 from videocapture import VideoCaptureThread
+from class_attendance import *
 
 # Initialize Mediapipe Face Detection
 mp_face_detection = mp.solutions.face_detection
@@ -81,6 +82,9 @@ if __name__ == "__main__":
     # Variables for "tracking"
     previous_face_locations = []
     previous_face_names = []
+
+    # Cleansing data repclasslist.xls (Burapha university)
+    cleansing_data()
 
     with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence=0.7) as face_detection:
         while True:
