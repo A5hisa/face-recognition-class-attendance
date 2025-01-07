@@ -76,19 +76,32 @@ def cleansing_data():
 
 
 
-# check attendance class from knowface
-def attendance(class_file,section="section1",week="",knowface=""):
+# create dataframe by file(subject_id) and section
+def read_attendance(class_file,section="section1"):
+    global list_check_student, df_attendance
     class_file = f"{class_file}.xlsx"
-    df_attendance = pd.read_excel(os.path.join(attendance_path, class_file),sheet_name=section)
-    df_student = df_attendance.iloc[:,1]
-    index = df_student.values.tolist()
-    
-    for key, val in enumerate(index):
-        if knowface == str(val):
-            df_attendance.at[key,week] = 1
-            print(df_attendance)
+    try :
+        df_attendance = pd.read_excel(os.path.join(attendance_path, class_file),sheet_name=section)
+        df_student = df_attendance.iloc[:,1]
+        list_check_student = df_student.values.tolist()
+    except ValueError as e :
+        print(f"Error = {e}")
+
+
+# attendance check with knowface from face_recognition in main
+def attendance(week="",knowface="") :
+    for index, student_id in enumerate(list_check_student):
+        if knowface == str(student_id):
+            df_attendance.at[index,week] = 1
  
-# attendance(class_file="24537164",section="section1",week="Week1",knowface="65020876")
+
+def save_attendance():
+    pass
+# read_attendance(class_file="24546364",section="section1")
+# attendance(week="Week1",knowface="65020876")
+# attendance(week="Week1",knowface="65020857")
+# attendance(week="Week1",knowface="65020863")
+# print(df_attendance)
 
 # gui
 
@@ -137,4 +150,4 @@ def setup_ui():
     main_ui.config(menu=menu_bar)
     main_ui.mainloop()
 
-setup_ui()
+# setup_ui()
