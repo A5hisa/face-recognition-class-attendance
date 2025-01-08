@@ -97,8 +97,9 @@ def read_attendance(class_file,section,week):
 def attendance(knowface="") :
     for index, student_id in enumerate(list_check_student):
         if knowface == str(student_id):
-            df_attendance.at[index,week_read] = 1
-            print(f"{knowface} check")
+            if df_attendance.at[index,week_read] == 0:
+                df_attendance.at[index,week_read] = 1
+                print(f"{knowface} check")
 
 
 # save file from dataframe (use attendance_path, file_name from function read_attendance)

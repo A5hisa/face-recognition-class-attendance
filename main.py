@@ -66,6 +66,8 @@ if __name__ == "__main__":
     known_faces_dir = "data"
     known_face_encodings, known_face_names = load_known_faces(known_faces_dir)
 
+    setup_ui()
+
     print("Initializing Camera...")
     video_capture = VideoCaptureThread(src=0, width=720, height=720, queue_size=2)
     video_capture.start()
@@ -187,12 +189,17 @@ if __name__ == "__main__":
 
                     cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
                     label = f"{name}"
-                    cv2.putText(frame, label, (left, bottom + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)    
+                    cv2.putText(frame, label, (left, bottom + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
+
+                    if name != "Unknown" :
+                        attendance(knowface=name)
         
                 cv2.imshow("Video", frame)
                 if cv2.waitKey(1) & 0xFF == ord("q"):
                     break
                 
+        save_attendance()
+        
         # Cleanup
         video_capture.stop()
         video_capture.join()
