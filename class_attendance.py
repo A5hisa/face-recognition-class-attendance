@@ -47,7 +47,7 @@ def cleansing_data():
             df_student_list = student_data.values.tolist()
             for number, student_id, student_name in df_student_list :  
                 if number == "เลขที่":
-                    df_section1 = pd.DataFrame(student_list, columns= column_header)
+                    df_section1 = pd.DataFrame(student_list, columns=column_header)
                     have2section = True
                     student_list = []
                 # if number is int then add [number, student_id, student_name and 0] 0 for week1-16 in to list for create data frame            
