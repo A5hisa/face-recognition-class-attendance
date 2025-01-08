@@ -4,9 +4,9 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 
 # set file path here
-# xls_path for raw data
+# xls_path for cleansing_data (repclasslist.xls in Burapha university)
+# attendance_path for .xlsx file to check class attendance
 xls_path = "raw_data"
-# attendance_path for xlsx file to check class attendance
 attendance_path = "data_attendance"
 
 # check filename list
