@@ -1,6 +1,6 @@
 # face-recognition-project
 
-This project is based on 
+This project ...
 
 ## Installation
 
