@@ -4,7 +4,7 @@
 import pandas as pd
 import os
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 
 # set file path here
 # xls_path for raw data
@@ -84,8 +84,10 @@ def read_attendance(class_file,section="section1",week=""):
         df_attendance = pd.read_excel(os.path.join(attendance_path, class_file),sheet_name=section)
         df_student = df_attendance.iloc[:,1]
         list_check_student = df_student.values.tolist()
+        return True
     except ValueError as e :
-        print(f"Error = {e}")
+        messagebox.showerror(title="Error", message=e)
+        return False
 
 
 # attendance check with knowface from face_recognition in main
@@ -150,8 +152,8 @@ def setup_ui():
             week_get = ""
             sect_get = ""
         else:
-            main_ui.destroy()
-            read_attendance(class_file=file_get, section=sect_get, week=week_get)
+            if read_attendance(class_file=file_get, section=sect_get, week=week_get):
+                main_ui.destroy()
 
 
     # confirm button

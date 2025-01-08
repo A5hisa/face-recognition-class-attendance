@@ -83,8 +83,6 @@ if __name__ == "__main__":
     previous_face_locations = []
     previous_face_names = []
 
-    # Cleansing data repclasslist.xls (Burapha university)
-    cleansing_data()
 
     with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence=0.7) as face_detection:
         while True:
