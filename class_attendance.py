@@ -1,6 +1,3 @@
-# For check attendance
-# 0 = False / 1 = True 
-
 import pandas as pd
 import os
 import tkinter as tk
