@@ -95,18 +95,12 @@ def attendance(knowface="") :
     for index, student_id in enumerate(list_check_student):
         if knowface == str(student_id):
             df_attendance.at[index,week_read] = 1
-            print(df_attendance)
+            print(f"{knowface} check")
 
  
-
 def save_attendance():
     pass
 
-# read_attendance(class_file="24546364",section="section1")
-# attendance(week="Week1",knowface="65020876")
-# attendance(week="Week1",knowface="65020857")
-# attendance(week="Week1",knowface="65020863")
-# print(df_attendance)
 
 # gui
 
