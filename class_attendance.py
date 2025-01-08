@@ -11,6 +11,7 @@ attendance_path = "data_attendance"
 
 # check filename list
 data_checkfile = []
+list_subject = "list_subject.txt"
 
 # dataframe
 column_header = ['เลขที่', 'รหัสประจำตัว', 'ชื่อ', 'Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7', 'Week8', 'Week9', 'Week10', 'Week11', 'Week12', 'Week13', 'Week14', 'Week15', 'Week16']
@@ -20,11 +21,13 @@ have2section = False
 # collect filename in to data_checkfile
 def checkfile(path=attendance_path):
     for file in os.listdir(path):
-        file, _ = os.path.splitext(file)
-        data_checkfile.append(file)
+        if file != "list_subject.txt" :
+            file, _ = os.path.splitext(file)
+            data_checkfile.append(file)
 
 
 # this function it's use for cleansing data repclasslist.xls in Burapha university
+# notice : Files with more than 2 classroom sections are not supported.
 def cleansing_data():
 
     checkfile()
@@ -35,10 +38,16 @@ def cleansing_data():
         df = pd.read_excel(os.path.join(xls_path, filename), engine="xlrd")
         get_subject = df.iloc[2,1]
         subject_id = get_subject.split(' ')[2]
+        subject_name = get_subject.split(' ')[4]
         
         # check data is already cleansing?
-        if subject_id not in data_checkfile: 
-            print(f"Cleansing data {filename} subject: {subject_id}")
+        if subject_id not in data_checkfile:
+
+            # add to list_subject.txt file 
+            with open(os.path.join(attendance_path, list_subject), encoding="utf-8", mode="a") as w_file:
+                w_file.write(f"\n{subject_id}, {subject_name}")
+            print(f"Cleansing data {filename}, subject: {subject_id}, subject name: {subject_name}")
+
             # get student data from sheet
             student_data = df.iloc[8:,1:4] # start row8 column B:D
             df_student_list = student_data.values.tolist()
@@ -117,6 +126,7 @@ def setup_ui():
     # Menu
     menu_bar = tk.Menu(main_ui, tearoff=0)
     # menu_bar.add_command(label="How to use", command=)
+    menu_bar.add_command(label="Subject", command=open(os.path.join(attendance_path, list_subject),mode="r"))
 
     # title
     title = tk.Label(main_ui, text="Class Attendance \nWith \nFace Recognition")
