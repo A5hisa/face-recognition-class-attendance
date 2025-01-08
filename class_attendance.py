@@ -12,7 +12,7 @@ attendance_path = "data_attendance"
 # check filename list
 data_checkfile = []
 
-# for dataframe
+# dataframe
 column_header = ['เลขที่', 'รหัสประจำตัว', 'ชื่อ', 'Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7', 'Week8', 'Week9', 'Week10', 'Week11', 'Week12', 'Week13', 'Week14', 'Week15', 'Week16']
 student_list = []
 have2section = False
