@@ -20,7 +20,6 @@ column_header = ['เลขที่', 'รหัสประจำตัว', '
 student_list = []
 have2section = False
 
-
 # collect filename in to data_checkfile
 def checkfile(path=attendance_path):
     for file in os.listdir(path):
@@ -77,9 +76,10 @@ def cleansing_data():
 
 
 # create dataframe by file(subject_id) and section
-def read_attendance(class_file,section="section1"):
-    global list_check_student, df_attendance
+def read_attendance(class_file,section="section1",week=""):
+    global list_check_student, df_attendance, week_read
     class_file = f"{class_file}.xlsx"
+    week_read = week
     try :
         df_attendance = pd.read_excel(os.path.join(attendance_path, class_file),sheet_name=section)
         df_student = df_attendance.iloc[:,1]
@@ -89,14 +89,17 @@ def read_attendance(class_file,section="section1"):
 
 
 # attendance check with knowface from face_recognition in main
-def attendance(week="",knowface="") :
+def attendance(knowface="") :
     for index, student_id in enumerate(list_check_student):
         if knowface == str(student_id):
-            df_attendance.at[index,week] = 1
+            df_attendance.at[index,week_read] = 1
+            print(df_attendance)
+
  
 
 def save_attendance():
     pass
+
 # read_attendance(class_file="24546364",section="section1")
 # attendance(week="Week1",knowface="65020876")
 # attendance(week="Week1",knowface="65020857")
@@ -107,6 +110,8 @@ def save_attendance():
 
 # set up ui
 def setup_ui():
+
+    cleansing_data()
 
     main_ui = tk.Tk()
     main_ui.title("Attendance Program")
@@ -131,16 +136,23 @@ def setup_ui():
     dropdown_week.pack(pady=20)
     dropdown_week.set("Select a Week")
 
+    dropdown_sect = ttk.Combobox(main_ui, values=["section1", "section2"])
+    dropdown_sect.pack(pady=20)
+    dropdown_sect.set("Select a Section")
+
     # submit
     def onclick_confirm():
-        file_name = dropdown_class.get()
-        week = dropdown_week.get()
-        if file_name == "Select a Class" or week == "Select a Week":
-            file_name = ""
-            week = ""
+        file_get = dropdown_class.get()
+        week_get = dropdown_week.get()
+        sect_get = dropdown_sect.get()
+        if file_get == "Select a Class" or week_get == "Select a Week" or sect_get == "Select a Section":
+            file_get = ""
+            week_get = ""
+            sect_get = ""
         else:
             main_ui.destroy()
-            start_record = True
+            read_attendance(class_file=file_get, section=sect_get, week=week_get)
+
 
     # confirm button
     bt_confirm = tk.Button(main_ui, text="Confirm & Start Attendance", command=onclick_confirm)
@@ -149,5 +161,3 @@ def setup_ui():
 
     main_ui.config(menu=menu_bar)
     main_ui.mainloop()
-
-# setup_ui()
