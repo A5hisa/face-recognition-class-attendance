@@ -77,6 +77,8 @@ def cleansing_data():
 
 # create dataframe by file(subject_id) and section
 def read_attendance(class_file,section,week):
+
+    # global for use to another function (attendance, save_attendance)
     global list_check_student, df_attendance, week_read, file_name, sect
     file_name = f"{class_file}.xlsx"
     week_read = week
@@ -97,15 +99,13 @@ def attendance(knowface="") :
         if knowface == str(student_id):
             df_attendance.at[index,week_read] = 1
             print(f"{knowface} check")
-            print(df_attendance)
+
 
 # save file from dataframe (use attendance_path, file_name from function read_attendance)
 def save_attendance():
     with pd.ExcelWriter(os.path.join(attendance_path, file_name)) as writer:
         df_attendance.to_excel(writer, sheet_name=sect, index=False)
 
-
-# gui
 
 # set up ui
 def setup_ui():
