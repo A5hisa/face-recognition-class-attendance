@@ -38,7 +38,7 @@ def cleansing_data():
         df = pd.read_excel(os.path.join(xls_path, filename), engine="xlrd")
         get_subject = df.iloc[2,1]
         subject_id = get_subject.split(' ')[2]
-
+        
         # check data is already cleansing?
         if subject_id not in data_checkfile: 
             print(f"Cleansing data {filename} subject: {subject_id}")
