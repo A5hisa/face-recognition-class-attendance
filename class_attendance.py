@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import tkinter as tk
+import webbrowser
 from tkinter import ttk, messagebox
 
 # set file path here
@@ -17,6 +18,7 @@ list_subject = "list_subject.txt"
 column_header = ['เลขที่', 'รหัสประจำตัว', 'ชื่อ', 'Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7', 'Week8', 'Week9', 'Week10', 'Week11', 'Week12', 'Week13', 'Week14', 'Week15', 'Week16']
 student_list = []
 have2section = False
+
 
 # collect filename in to data_checkfile
 def checkfile(path=attendance_path):
@@ -80,7 +82,6 @@ def cleansing_data():
         have2section = False
 
 
-
 # create dataframe by file(subject_id) and section
 def read_attendance(class_file,section,week):
 
@@ -114,6 +115,27 @@ def save_attendance():
         df_attendance.to_excel(writer, sheet_name=sect, index=False)
 
 
+# Menu function 1
+def how_to_use():
+    webbrowser.open("https://github.com/A5hisa/face-recognition-beta/blob/main/README.md")
+
+    
+# Menu fuction 2
+def open_subject_list():
+    ui_subject = tk.Tk()
+    ui_subject.title("subject list")
+
+    text = tk.Text(ui_subject, width=40, height=10)
+    text.pack(pady=10)
+
+
+    with open(os.path.join(attendance_path, list_subject), encoding="utf-8", mode="r") as file:
+        for line in file:
+            text.insert(tk.END, line)
+
+    ui_subject.mainloop()
+
+
 # set up ui
 def setup_ui():
 
@@ -125,8 +147,8 @@ def setup_ui():
 
     # Menu
     menu_bar = tk.Menu(main_ui, tearoff=0)
-    # menu_bar.add_command(label="How to use", command=)
-    menu_bar.add_command(label="Subject", command=open(os.path.join(attendance_path, list_subject),mode="r"))
+    menu_bar.add_command(label="How to use", command=how_to_use)
+    menu_bar.add_command(label="Subject List", command=open_subject_list)
 
     # title
     title = tk.Label(main_ui, text="Class Attendance \nWith \nFace Recognition")
