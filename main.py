@@ -86,7 +86,7 @@ if __name__ == "__main__":
     previous_face_names = []
 
 
-    with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence=0.7) as face_detection:
+    with mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.5) as face_detection:
         while True:
             if video_capture.more():
                 frame = video_capture.read()
@@ -94,7 +94,7 @@ if __name__ == "__main__":
 
                 # Only process every nth frame
                 if frame_count % process_every_n_frames == 0:
-                    small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
+                    small_frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
                     rgb_small_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
 
                     results = face_detection.process(rgb_small_frame)
@@ -151,7 +151,7 @@ if __name__ == "__main__":
                                         distances, indices = nbrs.kneighbors([face_encoding])
                                         dist = distances[0][0]
                                         best_match_index = indices[0][0]
-                                        if dist <= 0.6:
+                                        if dist <= 0.5:
                                             name = known_face_names[best_match_index]
                                             confidence = (1 - dist) * 100
                                         else:
@@ -182,24 +182,30 @@ if __name__ == "__main__":
                 # Display results
                 for ((top, right, bottom, left), (name, confidence)) in zip(face_locations, face_names):
                     # Scale back up by factor of 4 since we scaled down the image
-                    top *= 4
-                    right *= 4
-                    bottom *= 4
-                    left *= 4
+                    top *= 2
+                    right *= 2
+                    bottom *= 2
+                    left *= 2
 
                     cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
                     label = f"{name}"
                     cv2.putText(frame, label, (left, bottom + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
 
-                    if name != "Unknown" :
-                        attendance(knowface=name)
+                    if name != "Unknown":
+                        try:
+                            attendance(knowface=name)
+                        except NameError as e:
+                            print(f"Error: {NameError}")
         
                 cv2.imshow("Video", frame)
                 if cv2.waitKey(1) & 0xFF == ord("q"):
                     break
-                
-        save_attendance()
         
+        try:
+            save_attendance()
+        except NameError as e:
+            print(f"Error: {NameError}")
+            
         # Cleanup
         video_capture.stop()
         video_capture.join()
