@@ -201,6 +201,7 @@ if __name__ == "__main__":
                 if cv2.waitKey(1) & 0xFF == ord("q"):
                     break
         
+        # Save file
         try:
             save_attendance()
         except NameError as e:
