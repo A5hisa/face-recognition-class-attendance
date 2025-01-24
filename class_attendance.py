@@ -103,6 +103,7 @@ def read_attendance(class_file,section,week):
         df_attendance = pd.read_excel(os.path.join(attendance_path, file_name),sheet_name=sect)
         df_student = df_attendance.iloc[:,1]
         list_check_student = df_student.values.tolist()
+        logging.info(f"File Open! :{file_name}, {sect}")
         return True
     except ValueError as e :
         messagebox.showerror(title="Error", message=e)
@@ -123,7 +124,7 @@ def attendance(knowface="") :
 def save_attendance():
     with pd.ExcelWriter(os.path.join(attendance_path, file_name)) as writer:
         df_attendance.to_excel(writer, sheet_name=sect, index=False)
-        logging.info(f"{file_name}, {sect}")
+        logging.info(f"File Save! :{file_name}, {sect}")
 
 
 # Menu function 1
