@@ -3,12 +3,21 @@ import os
 import tkinter as tk
 import webbrowser
 from tkinter import ttk, messagebox
+import logging
 
 # set file path here
 # xls_path for cleansing_data (repclasslist.xls in Burapha university)
 # attendance_path for .xlsx file to check class attendance
 xls_path = "raw_data"
 attendance_path = "data_attendance"
+
+#log file
+log = "student_check.log"
+
+logging.basicConfig(filename=os.path.join(attendance_path, log),
+                    format='%(asctime)s %(message)s',
+                    datefmt="%d-%m-%Y %H:%M:%S",
+                    level=logging.INFO)
 
 # check filename list
 data_checkfile = []
@@ -107,12 +116,14 @@ def attendance(knowface="") :
             if df_attendance.at[index,week_read] == 0:
                 df_attendance.at[index,week_read] = 1
                 print(f"{knowface} check")
+                logging.info(f"{knowface}, {week_read}")
 
 
 # save file from dataframe (use attendance_path, file_name from function read_attendance)
 def save_attendance():
     with pd.ExcelWriter(os.path.join(attendance_path, file_name)) as writer:
         df_attendance.to_excel(writer, sheet_name=sect, index=False)
+        logging.info(f"{file_name}, {sect}")
 
 
 # Menu function 1
