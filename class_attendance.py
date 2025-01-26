@@ -11,9 +11,8 @@ import logging
 xls_path = "raw_data"
 attendance_path = "data_attendance"
 
-#log file
+#log file & log config
 log = "student_check.log"
-
 logging.basicConfig(filename=os.path.join(attendance_path, log),
                     format='%(asctime)s %(message)s',
                     datefmt="%d-%m-%Y %H:%M:%S",
@@ -24,7 +23,9 @@ data_checkfile = []
 list_subject = "list_subject.txt"
 
 # dataframe
-column_header = ['เลขที่', 'รหัสประจำตัว', 'ชื่อ', 'Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7', 'Week8', 'Week9', 'Week10', 'Week11', 'Week12', 'Week13', 'Week14', 'Week15', 'Week16']
+column_header = ['เลขที่', 'รหัสประจำตัว', 'ชื่อ', 
+                 'Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7', 'Week8', 
+                 'Week9', 'Week10', 'Week11', 'Week12', 'Week13', 'Week14', 'Week15', 'Week16']
 student_list = []
 have2section = False
 
@@ -140,7 +141,6 @@ def open_subject_list():
     text = tk.Text(ui_subject, width=40, height=10)
     text.pack(pady=10)
 
-
     with open(os.path.join(attendance_path, list_subject), encoding="utf-8", mode="r") as file:
         for line in file:
             text.insert(tk.END, line)
@@ -148,7 +148,7 @@ def open_subject_list():
     ui_subject.mainloop()
 
 
-# set up ui
+# setup ui
 def setup_ui():
 
     cleansing_data()
