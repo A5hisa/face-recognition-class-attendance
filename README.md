@@ -25,20 +25,24 @@ This project is face recognition for class attendance, developed from Python, us
 
 ```bash
     .
-    ├── data                    # Directory for storage face images
-    ├── data_attendance         # Storage cleansing data .xlsx file, log file(student_check.log), list_subject.txt 
-    ├── raw_data                # Storage base file before cleansing data
+    ├── data                    # Directory for storage face images (only .jpg and .png images are supported)
+    ├── data_attendance         # Storage cleansing data .xlsx file, log file, list_subject file
+    ├── raw_data                # Storage base file before cleansing data (only .xls files)
 ```
 
 ### General User
 
-1. Directory **data**, face images file should be name with student_id or student_number(It's key for check in class attendace)
+1. Directory **data**, face image file should be name with student_id or student_number(It's key for check in class attendace)
+
 
 2. Directory **data_attendance**, name the xlsx file should be name with subject_id
 
+- 
+
 ### Burapha University User
 
-1. Directory **data**, face images file should be name with student_id or student_number(It's key for check in class attendace)
+1. Directory **data**, face image file should be name with student_id or student_number(It's key for check in class attendace)
+
 
 2. Directory **raw_data**, you can download repclasslist.xls in [reg.buu](https://reg.buu.ac.th/) and it's will be cleansing data into **data_attendance** when you run program.
 
