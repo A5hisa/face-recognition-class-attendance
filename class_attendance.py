@@ -26,7 +26,7 @@ list_subject = "list_subject.txt"
 column_header = ['เลขที่', 'รหัสประจำตัว', 'ชื่อ', 
                  'Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7', 'Week8', 
                  'Week9', 'Week10', 'Week11', 'Week12', 'Week13', 'Week14', 'Week15', 'Week16']
-# EN User use this list below
+# EN version use this list below
 # column_header = ['No', 'Student_No', 'Name', 
 #                  'Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7', 'Week8', 
 #                  'Week9', 'Week10', 'Week11', 'Week12', 'Week13', 'Week14', 'Week15', 'Week16']
@@ -37,7 +37,9 @@ have2section = False
 # collect filename in to data_checkfile
 def checkfile(path=attendance_path):
     for file in os.listdir(path):
-        if file != "list_subject.txt" :
+        if file == "list_subject.txt" or file == "student_check.log" :
+            pass
+        else :
             file, _ = os.path.splitext(file)
             data_checkfile.append(file)
 
