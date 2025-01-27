@@ -65,6 +65,7 @@ def cleansing_data():
             with open(os.path.join(attendance_path, list_subject), encoding="utf-8", mode="a") as w_file:
                 w_file.write(f"\n{subject_id}, {subject_name}")
             print(f"Cleansing data {filename}, subject: {subject_id}, subject name: {subject_name}")
+            logging.info(f"Cleansing data : {filename}")
 
             # get student data from sheet
             student_data = df.iloc[8:,1:4] # start row8 column B:D
@@ -92,6 +93,7 @@ def cleansing_data():
                     df_section2 = pd.DataFrame(student_list, columns= column_header)
                     df_section2.to_excel(writer, sheet_name="section2", index=False)
                 print(f"Create file in folder:{attendance_path} filename:{namefile}\n")
+                logging.info(f"Create File! : {attendance_path}\{namefile}")
 
         # set default
         student_list = []
@@ -110,7 +112,7 @@ def read_attendance(class_file,section,week):
         df_attendance = pd.read_excel(os.path.join(attendance_path, file_name),sheet_name=sect)
         df_student = df_attendance.iloc[:,1]
         list_check_student = df_student.values.tolist()
-        logging.info(f"File Open! :{file_name}, {sect}")
+        logging.info(f"File Open! : {file_name}, {sect}")
         return True
     except ValueError as e :
         messagebox.showerror(title="Error", message=e)
