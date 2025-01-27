@@ -27,6 +27,7 @@ This project is face recognition for class attendance, developed from Python, us
     .
     ├── data                    # Directory for storage face images (only .jpg and .png images are supported)
     ├── data_attendance         # Storage cleansing data .xlsx file, log file, list_subject file
+    ├── documentation           # Directory for documentation 
     ├── raw_data                # Storage base file before cleansing data (only .xls files)
 ```
 
@@ -35,9 +36,9 @@ This project is face recognition for class attendance, developed from Python, us
 1. Directory **data**, face image file should be name with student_id or student_number(It's key for check in class attendace)
 
 
-2. Directory **data_attendance**, name the xlsx file should be name with subject_id
+2. Directory **data_attendance**, name the .xlsx file should be name with subject_id
 
-- 
+- for .xlsx file format in directory documentation
 
 ### Burapha University User
 
