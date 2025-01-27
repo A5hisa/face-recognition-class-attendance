@@ -3,9 +3,13 @@
 This project is face recognition for class attendance, developed from Python, use libraries such as [face_recognition](https://github.com/ageitgey/face_recognition), [NumPy](https://numpy.org/), [Scikit-learn](https://scikit-learn.org/), [mediapipe](https://pypi.org/project/mediapipe/), [Pandas](https://pandas.pydata.org/), [OpenCV](https://pypi.org/project/opencv-python/) and developed codebase from [face_recog_tutorial](https://github.com/jsammarco/face_recog_tutorial).
 
 
-## Authors
+## Features
 
-- Aussawin Saksawaddikul [(A5hisa)](https://www.github.com/A5hisa)
+- Check class attendance with face recognition
+- Cleansing Data for Burapha University(reg.buu) 
+- Log file
+- Save class attendance data with Excel files using Pandas
+
 
 ## Installation
 
@@ -51,6 +55,14 @@ This project is face recognition for class attendance, developed from Python, us
 
 
 **Notice : File name image files and Student No in data_attendance files should be the same because it's key for check class attendance.**
+
+## Authors
+
+- Aussawin Saksawaddikul [(A5hisa)](https://www.github.com/A5hisa)
+
+## Feedback
+
+If you have any feedback, please reach out to us at saksawaddikul@gmail.com
 
 
 ## License
