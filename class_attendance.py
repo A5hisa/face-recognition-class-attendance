@@ -133,7 +133,7 @@ def attendance(knowface="") :
 def save_attendance():
     with pd.ExcelWriter(os.path.join(attendance_path, file_name)) as writer:
         df_attendance.to_excel(writer, sheet_name=sect, index=False)
-        logging.info(f"File Save! :{file_name}, {sect}")
+        logging.info(f"File Save! : {file_name}, {sect}")
 
 
 # Menu function 1
