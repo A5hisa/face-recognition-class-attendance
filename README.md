@@ -1,4 +1,4 @@
-# face-recognition-for-class-attendance
+# face recognition for class attendance
 
 This project is face recognition for class attendance, developed from Python, use libraries such as [face_recognition](https://github.com/ageitgey/face_recognition), [NumPy](https://numpy.org/), [Scikit-learn](https://scikit-learn.org/), [mediapipe](https://pypi.org/project/mediapipe/), [Pandas](https://pandas.pydata.org/), [OpenCV](https://pypi.org/project/opencv-python/) and developed codebase from [face_recog_tutorial](https://github.com/jsammarco/face_recog_tutorial).
 
