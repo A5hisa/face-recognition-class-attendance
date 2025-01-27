@@ -1,13 +1,13 @@
 # face recognition for class attendance
 
-โปรเจคเช็คชื่อนักเรียนหรือนักศึกษาด้วยเทคโนโลยีการจดจำใบหน้า(face recoginition) ถูกพัฒนาด้วย Python และ library ต่าง ๆ ได้แก่ [face_recognition](https://github.com/ageitgey/face_recognition), [NumPy](https://numpy.org/), [Scikit-learn](https://scikit-learn.org/), [mediapipe](https://pypi.org/project/mediapipe/), [Pandas](https://pandas.pydata.org/), [OpenCV](https://pypi.org/project/opencv-python/) และมี codebase มาจาก [face_recog_tutorial](https://github.com/jsammarco/face_recog_tutorial).
+โปรเจคเช็คชื่อนักเรียนหรือนักศึกษาด้วยเทคโนโลยีการจดจำใบหน้า(face recoginition) ถูกพัฒนาด้วย Python และ library ต่าง ๆ ได้แก่ [face_recognition](https://github.com/ageitgey/face_recognition), [NumPy](https://numpy.org/), [Scikit-learn](https://scikit-learn.org/), [mediapipe](https://pypi.org/project/mediapipe/), [Pandas](https://pandas.pydata.org/), [OpenCV](https://pypi.org/project/opencv-python/) และมีโค้ดพื้นฐานมาจาก [face_recog_tutorial](https://github.com/jsammarco/face_recog_tutorial).
 
 
 ## Features
 
 - เช็คชื่อนักเรียนหรือนิสิตผ่านทางกล้องด้วยระบบจดจำใบหน้า
 - จัดรูปแบบข้อมูล(Data Cleansing) สำหรับไฟล์ที่ดาวน์โหลดผ่านทางระบบ reg ของมหาวิทยาลัยบูรพา เพื่อให้ง่ายต่อการเช็คชื่อ
-- มี Log file สำหรับเช็คข้อมูลย้อนหลัง (ตัวอย่างรูป log file คลิก[ที่นี่](https://github.com/A5hisa/face-recognition-beta/blob/main/documentation/log_example.png))
+- มี Log file สำหรับเช็คข้อมูลย้อนหลัง (ตัวอย่างรูป log file คลิก [ที่นี่](https://github.com/A5hisa/face-recognition-beta/blob/main/documentation/log_example.png))
 - บันทึกข้อมูลการเช็คชื่อของนักเรียนหรือนิสิตด้วย Pandas ในรูปแบบของ Excel(.xlsx)
 
 
