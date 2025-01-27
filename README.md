@@ -30,7 +30,7 @@ This project is face recognition for class attendance, developed from Python, us
     ├── raw_data                # Storage base file before cleansing data
 ```
 
-### Genereal User
+### General User
 
 1. Directory **data**, Face images file should be name with student_id or student_number(It's key for check in class attendace)
 
