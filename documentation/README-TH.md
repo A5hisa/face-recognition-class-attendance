@@ -51,7 +51,7 @@
 1. ในโฟลเดอร์ **data**, ให้เก็บภาพนิสิตและตั้งชื่อไฟล์ภาพเป็นรหัสนิสิต
 
 
-2. ในโฟลเดอร์ **raw_data**, ผู้ใช้สามารถดาวน์โหลดไฟล์ repclasslist.xls ที่ [reg.buu](https://reg.buu.ac.th/) และเมื่อทำการจัดรูปแบบข้อมูล(Data Cleansing) ข้อมูลของ repclasslist.xls จะถูกย้ายไปอยู่ที่ **data_attendance**
+2. ในโฟลเดอร์ **raw_data**, ผู้ใช้สามารถดาวน์โหลดไฟล์ repclasslist.xls ที่ [reg.buu](https://reg.buu.ac.th/) (วิธีการดาวน์โหลดไฟล์ repclasslist.xls คลิก [ที่นี้](https://github.com/A5hisa/face-recognition-beta/blob/main/documentation/reg_example.png)) และเมื่อทำการจัดรูปแบบข้อมูล(Data Cleansing) ข้อมูลของ repclasslist.xls จะถูกย้ายไปอยู่ที่ **data_attendance**
 
 
 **ข้อควรระวัง : ไฟล์ภาพนิสิตจะต้องเป็นรหัสนิสิต เนื่องจากระบบเช็คชื่อถูกสร้างให้เช็คด้วยรหัสนิสิต หากตั้งชื่อไฟล์ภาพนิสิตด้วยชื่อ ระบบจะไม่สามารถเช็คชื่อได้**
