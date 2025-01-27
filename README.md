@@ -26,7 +26,7 @@ This project is face recognition for class attendance, developed from Python, us
 ```bash
     .
     ├── data                    # Directory for storage face images
-    ├── data_attendance         # Storage cleansing data .xlsx file, log file, subject list file
+    ├── data_attendance         # Storage cleansing data .xlsx file, log file(student_check.log), list_subject.txt 
     ├── raw_data                # Storage base file before cleansing data
 ```
 
