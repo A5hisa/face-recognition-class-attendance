@@ -38,7 +38,8 @@ This project is face recognition for class attendance, developed from Python, us
 
 2. Directory **data_attendance**, name the .xlsx file should be name with subject_id
 
-- for .xlsx file format in directory documentation
+- for .xlsx file format in directory **documentation**
+- Example file is in directory **data_attendance** file name 12345678.xlsx
 
 ### Burapha University User
 
