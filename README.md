@@ -33,7 +33,7 @@ This project is face recognition for class attendance, developed from Python, us
 
 ### General User
 
-1. Directory **data**, face image file should be name with student_id or student_number(It's key for check in class attendace)
+1. Directory **data**, face image file should be name with student_id or student_number
 
 
 2. Directory **data_attendance**, name the .xlsx file should be name with subject_id
@@ -41,12 +41,16 @@ This project is face recognition for class attendance, developed from Python, us
 - for .xlsx file format in directory **documentation**
 - Example file is in directory **data_attendance** file name 12345678.xlsx
 
+
 ### Burapha University User
 
-1. Directory **data**, face image file should be name with student_id or student_number(It's key for check in class attendace)
+1. Directory **data**, face image file should be name with student_id or student_number
 
 
 2. Directory **raw_data**, you can download repclasslist.xls in [reg.buu](https://reg.buu.ac.th/) and it's will be cleansing data into **data_attendance** when you run program.
+
+
+**Notice : File name image files and Student No in data_attendance files should be the same because it's key for check class attendance.**
 
 
 ## License
