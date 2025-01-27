@@ -6,9 +6,13 @@ This project is face recognition for class attendance, developed from Python, us
 ## Features
 
 - Check class attendance with face recognition
-- Cleansing Data for Burapha University(reg.buu) 
-- Log file
+- Data cleansing for Burapha University(reg.buu) 
+- Log file (For Example click [here](https://github.com/A5hisa/face-recognition-beta/blob/main/documentation/log_example.png))
 - Save class attendance data with Excel files using Pandas
+
+## Documentation
+
+Thai Documentation click [here](https://github.com/A5hisa/face-recognition-beta/blob/main/documentation/README-TH.md)
 
 
 ## Installation
@@ -40,9 +44,9 @@ This project is face recognition for class attendance, developed from Python, us
 1. Directory **data**, face image file should be name with student_id or student_number
 
 
-2. Directory **data_attendance**, name the .xlsx file should be name with subject_id
+2. Directory **data_attendance**, name the .xlsx file should be name with subject name or subject id
 
-- for .xlsx file format in directory **documentation**
+- for .xlsx file format, you can use in directory **documentation**\format_data_attendance.xlsx
 - Example file is in directory **data_attendance** file name 12345678.xlsx
 
 
