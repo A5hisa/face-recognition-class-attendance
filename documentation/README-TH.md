@@ -7,7 +7,7 @@
 
 - เช็คชื่อนักเรียนหรือนิสิตผ่านทางกล้องด้วยระบบจดจำใบหน้า
 - จัดรูปแบบข้อมูล(Data Cleansing) สำหรับไฟล์ที่ดาวน์โหลดผ่านทางระบบ reg ของมหาวิทยาลัยบูรพา เพื่อให้ง่ายต่อการเช็คชื่อ
-- มี Log file สำหรับเช็คข้อมูลย้อนหลัง (ตัวอย่างรูป log file คลิก [ที่นี่](https://github.com/A5hisa/face-recognition-beta/blob/main/documentation/log_example.png))
+- มี Log file สำหรับเช็คข้อมูลย้อนหลัง (ตัวอย่าง log file คลิก [ที่นี่](https://github.com/A5hisa/face-recognition-beta/blob/main/documentation/log_example.png))
 - บันทึกข้อมูลการเช็คชื่อของนักเรียนหรือนิสิตด้วย Pandas ในรูปแบบของ Excel(.xlsx)
 
 
