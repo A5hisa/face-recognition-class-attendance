@@ -1,6 +1,6 @@
 # face recognition for class attendance
 
-โปรเจคเช็คชื่อนักเรียนหรือนักศึกษาด้วยเทคโนโลยีการจดจำใบหน้า(face recoginition) ถูกพัฒนาด้วย Python และ library ต่าง ๆ ได้แก่ [face_recognition](https://github.com/ageitgey/face_recognition), [NumPy](https://numpy.org/), [Scikit-learn](https://scikit-learn.org/), [mediapipe](https://pypi.org/project/mediapipe/), [Pandas](https://pandas.pydata.org/), [OpenCV](https://pypi.org/project/opencv-python/) และมีโค้ดพื้นฐานมาจาก [face_recog_tutorial](https://github.com/jsammarco/face_recog_tutorial).
+โปรเจคเช็คชื่อนักเรียนหรือนิสิตด้วยเทคโนโลยีการจดจำใบหน้า(face recoginition) ถูกพัฒนาด้วย Python และ library ต่าง ๆ ได้แก่ [face_recognition](https://github.com/ageitgey/face_recognition), [NumPy](https://numpy.org/), [Scikit-learn](https://scikit-learn.org/), [mediapipe](https://pypi.org/project/mediapipe/), [Pandas](https://pandas.pydata.org/), [OpenCV](https://pypi.org/project/opencv-python/) และมีโค้ดพื้นฐานมาจาก [face_recog_tutorial](https://github.com/jsammarco/face_recog_tutorial).
 
 
 ## Features
