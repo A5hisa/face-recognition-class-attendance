@@ -141,7 +141,7 @@ def how_to_use():
     webbrowser.open("https://github.com/A5hisa/face-recognition-beta/blob/main/README.md")
 
     
-# Menu fuction 2
+# Menu fuction 2 
 def open_subject_list():
     ui_subject = tk.Tk()
     ui_subject.title("subject list")
@@ -156,7 +156,7 @@ def open_subject_list():
     ui_subject.mainloop()
 
 
-# setup ui
+# ui
 def setup_ui():
 
     cleansing_data()
