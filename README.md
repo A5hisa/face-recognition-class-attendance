@@ -10,7 +10,7 @@ Thai Documentation click [here](https://github.com/A5hisa/face-recognition-beta/
 ## Features
 
 - Check class attendance with face recognition
-- Data cleansing for Burapha University([reg.buu])(https://reg.buu.ac.th/) 
+- Data cleansing for Burapha University [reg.buu](https://reg.buu.ac.th/) 
 - Log file (for example click [here](https://github.com/A5hisa/face-recognition-beta/blob/main/documentation/log_example.png))
 - Save class attendance data with Excel files using Pandas
 
