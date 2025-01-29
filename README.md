@@ -58,7 +58,7 @@ Thai Documentation click [here](https://github.com/A5hisa/face-recognition-beta/
 2. Directory **raw_data**, you can download repclasslist.xls in [reg.buu](https://reg.buu.ac.th/) and it's will be cleansing data into **data_attendance** when you run program.
 
 
-**Notice : File name image files and Student No in data_attendance files should be the same because it's key for check class attendance.**
+**Notice : File name image and Student No in data_attendance file should be the same because it's key for check class attendance.**
 
 ## Authors
 
