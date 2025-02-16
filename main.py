@@ -25,6 +25,7 @@ def load_known_faces(directory):
 
             if os.path.exists(pkl_path):
                 # Load encoding from pickle file
+                # Load only files used
                 if name in students_id:
                     try:
                         with open(pkl_path, 'rb') as pkl_file:
