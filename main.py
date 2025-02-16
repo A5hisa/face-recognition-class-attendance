@@ -25,14 +25,15 @@ def load_known_faces(directory):
 
             if os.path.exists(pkl_path):
                 # Load encoding from pickle file
-                try:
-                    with open(pkl_path, 'rb') as pkl_file:
-                        encoding = pickle.load(pkl_file)
-                        known_face_encodings.append(encoding)
-                        known_face_names.append(name)
-                        print(f"Loaded encoding from {pkl_path}")
-                except Exception as e:
-                    print(f"Error loading {pkl_path}: {e}")
+                if name in students:
+                    try:
+                        with open(pkl_path, 'rb') as pkl_file:
+                            encoding = pickle.load(pkl_file)
+                            known_face_encodings.append(encoding)
+                            known_face_names.append(name)
+                            print(f"Loaded encoding from {pkl_path}")
+                    except Exception as e:
+                        print(f"Error loading {pkl_path}: {e}")
             else:
                 # Generate encoding and save to pickle
                 try:
@@ -40,8 +41,9 @@ def load_known_faces(directory):
                     face_encodings = face_recognition.face_encodings(image)
                     if face_encodings:
                         encoding = face_encodings[0]
-                        known_face_encodings.append(encoding)
-                        known_face_names.append(name)
+                        if name in students:
+                            known_face_encodings.append(encoding)
+                            known_face_names.append(name)
                         print(f"Generated and saved encoding for {image_path}")
 
                         # Save the encoding to a pickle file
@@ -62,11 +64,13 @@ def load_known_faces(directory):
 
 
 if __name__ == "__main__":
+
+    setup_ui()
+    students = check_student()
+
     # Load known faces
     known_faces_dir = "data"
     known_face_encodings, known_face_names = load_known_faces(known_faces_dir)
-
-    setup_ui()
 
     print("Initializing Camera...")
     video_capture = VideoCaptureThread(src=0, width=720, height=720, queue_size=2)
