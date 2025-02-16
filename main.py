@@ -25,7 +25,7 @@ def load_known_faces(directory):
 
             if os.path.exists(pkl_path):
                 # Load encoding from pickle file
-                if name in students:
+                if name in students_id:
                     try:
                         with open(pkl_path, 'rb') as pkl_file:
                             encoding = pickle.load(pkl_file)
@@ -41,7 +41,7 @@ def load_known_faces(directory):
                     face_encodings = face_recognition.face_encodings(image)
                     if face_encodings:
                         encoding = face_encodings[0]
-                        if name in students:
+                        if name in students_id:
                             known_face_encodings.append(encoding)
                             known_face_names.append(name)
                         print(f"Generated and saved encoding for {image_path}")
@@ -65,8 +65,9 @@ def load_known_faces(directory):
 
 if __name__ == "__main__":
 
+    # Load UI & student_id
     setup_ui()
-    students = check_student()
+    students_id = check_student()
 
     # Load known faces
     known_faces_dir = "data"
