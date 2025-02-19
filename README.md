@@ -66,7 +66,7 @@ Thai Documentation click [here](https://github.com/A5hisa/face-recognition-beta/
 
 ### Mediapipe DDL Load failed
 
-You can download [vc_redist.x64.exe](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) 
+- You can download [Microsoft Visual C++](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) 
 
 ## Authors
 
