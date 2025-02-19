@@ -13,6 +13,7 @@ Thai Documentation click [here](https://github.com/A5hisa/face-recognition-beta/
 - Data cleansing for Burapha University [reg.buu](https://reg.buu.ac.th/) 
 - Log file (for example click [here](https://github.com/A5hisa/face-recognition-beta/blob/main/documentation/log_example.png))
 - Save class attendance data with Excel files using Pandas
+- Support on windows 11
 
 
 ## Installation
@@ -59,6 +60,13 @@ Thai Documentation click [here](https://github.com/A5hisa/face-recognition-beta/
 
 
 **Notice : File name image and Student No in data_attendance file should be the same because it's key for check class attendance.**
+
+
+## Issues
+
+### Mediapipe DDL Load failed
+
+- You can download [Microsoft Visual C++](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) 
 
 ## Authors
 
