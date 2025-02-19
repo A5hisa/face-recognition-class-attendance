@@ -9,6 +9,7 @@
 - จัดรูปแบบข้อมูล(Data Cleansing) สำหรับไฟล์ที่ดาวน์โหลดผ่านทางระบบ reg ของมหาวิทยาลัยบูรพา 
 - มี Log file สำหรับเช็คข้อมูลย้อนหลัง (ตัวอย่าง log file คลิก [ที่นี่](https://github.com/A5hisa/face-recognition-beta/blob/main/documentation/log_example.png))
 - บันทึกข้อมูลการเช็คชื่อของนักเรียนหรือนิสิตด้วย Pandas ในรูปแบบของ Excel(.xlsx)
+- รองรับบน windows 11
 
 
 ## Installation
