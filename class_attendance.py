@@ -120,11 +120,13 @@ def read_attendance(class_file,section,week):
 
 
 def check_student():
-    students = []
-    for studentid in list_check_student:
-        students.append(str(studentid))
-    return students
-    
+    try :
+        students = []
+        for studentid in list_check_student:
+            students.append(str(studentid))
+        return students
+    except NameError :
+        pass
 
 # attendance check with knowface from face_recognition in main
 def attendance(knowface="") :
