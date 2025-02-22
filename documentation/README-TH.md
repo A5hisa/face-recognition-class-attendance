@@ -9,6 +9,7 @@
 - จัดรูปแบบข้อมูล(Data Cleansing) สำหรับไฟล์ที่ดาวน์โหลดผ่านทางระบบ reg ของมหาวิทยาลัยบูรพา 
 - มี Log file สำหรับเช็คข้อมูลย้อนหลัง (ตัวอย่าง log file คลิก [ที่นี่](https://github.com/A5hisa/face-recognition-beta/blob/main/documentation/log_example.png))
 - บันทึกข้อมูลการเช็คชื่อของนักเรียนหรือนิสิตด้วย Pandas ในรูปแบบของ Excel(.xlsx)
+- รองรับบน windows 11
 
 
 ## Installation
@@ -56,6 +57,10 @@
 
 **ข้อควรระวัง : ไฟล์ภาพนิสิตจะต้องเป็นรหัสนิสิต เนื่องจากระบบเช็คชื่อถูกสร้างให้เช็คด้วยรหัสนิสิต หากตั้งชื่อไฟล์ภาพนิสิตด้วยชื่อ ระบบจะไม่สามารถเช็คชื่อได้**
 **ข้อควรระวัง : ไฟล์ repclasslist.xls ที่มีกลุ่มเรียนมากกว่า 2 กลุ่มขึ้นไป ไม่สามารถจัดรูปแบบข้อมูลได้(Data Cleansing)**
+
+### Mediapipe DDL Load failed
+
+- ให้โหลด [Microsoft Visual C++](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) 
 
 ## Authors
 
