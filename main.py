@@ -157,7 +157,7 @@ if __name__ == "__main__":
                                         distances, indices = nbrs.kneighbors([face_encoding])
                                         dist = distances[0][0]
                                         best_match_index = indices[0][0]
-                                        if dist <= 0.6:
+                                        if dist <= 0.45:
                                             name = known_face_names[best_match_index]
                                         else:
                                             name = "Unknown"
