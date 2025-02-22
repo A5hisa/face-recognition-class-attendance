@@ -159,19 +159,16 @@ if __name__ == "__main__":
                                         best_match_index = indices[0][0]
                                         if dist <= 0.5:
                                             name = known_face_names[best_match_index]
-                                            confidence = (1 - dist) * 100
                                         else:
                                             name = "Unknown"
-                                            confidence = 0
                                     else:
                                         # No known faces
                                         name = "Unknown"
-                                        confidence = 0
 
-                                    new_face_names.append((name, confidence))
+                                    new_face_names.append(name)
                                 else:
                                     # No encoding found, treat as unknown
-                                    new_face_names.append(("Unknown", 100.0))
+                                    new_face_names.append("Unknown")
 
                         # Update for next iteration
                         previous_face_locations = new_face_locations
@@ -186,7 +183,7 @@ if __name__ == "__main__":
                     face_names = new_face_names
                     
                 # Display results
-                for ((top, right, bottom, left), (name, confidence)) in zip(face_locations, face_names):
+                for ((top, right, bottom, left), (name)) in zip(face_locations, face_names):
                     # Scale back up by factor of 4 since we scaled down the image
                     top *= 2
                     right *= 2
